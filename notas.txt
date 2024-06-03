@@ -1,0 +1,9 @@
+npx create-expo-app@latest Tarefas --template blank
+
+cd Tarefas
+git config --global user.name komachi1ne
+git config --global user.email isabellevasconcelos862@gmail.com
+
+npm i
+
+npx expo start --localhost --android
