@@ -7,15 +7,15 @@ export default function Welcome() {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
-          source={require("../assets/1.jpg")}
+          source={require("../assets/Chico.jpg")}
           style={styles.image}
         />
       </View>
       <View style={styles.content}>
-        <Text style={styles.title}>Gallo Shopping List</Text>
+        <Text style={styles.title}>Chico Tarefas</Text>
         <Text style={styles.text}>
-          Monte sua lista de compras e não esqueça mais o que precisa
-          comprar ao sair de casa!!!
+          Seu bloco de tarefas estilizado e prático.
+          Não esqueça de fazê-las !!!  Bons estudos...
           </Text>
         <Link style={styles.button} href={"/home"}>
           <Text style={styles.buttonText}>Acessar</Text>

@@ -19,7 +19,7 @@ export default function Home() {
   const saveItemToDevice = async (items) => {
     try {
       const itemJson = JSON.stringify(items);
-      await AsyncStorage.setItem('galloshoppinglist', itemJson);
+      await AsyncStorage.setItem('Tarefas', itemJson);
     } catch (error) {
       console.log(`Erro: ${error}`);
     }
@@ -27,7 +27,7 @@ export default function Home() {
 
   const getItemsFromDevice = async() => {
     try {
-      const items = await AsyncStorage.getItem('galloshoppinglist');
+      const items = await AsyncStorage.getItem('Tarefas');
       if (items != null){
         setItems(JSON.parse(items));
       }
@@ -39,7 +39,7 @@ export default function Home() {
   const addItem = () => {
     // console.log(textInput);
     if (textInput == ''){
-      Alert.alert('Ocorreu um problema :(', 'Por favor, informe o nome do produto!!');
+      Alert.alert('Ocorreu um problema :(', 'Por favor, informe a tarefa!!');
     } else {
       const newItem = {
         id: Math.random(),
@@ -72,7 +72,7 @@ export default function Home() {
   }
 
   const removeItem = itemId => {
-    Alert.alert('Excluir produto?', 'Confirma a exclus o deste produto?', 
+    Alert.alert('Excluir tarefa?', 'Confirmar excluir tarefa?', 
     [
       {
         text: 'Sim', onPress: () => {
@@ -88,7 +88,7 @@ export default function Home() {
   }
 
   const removeAll = () => {
-    Alert.alert('Limpar lista?', 'Confirme a exclus o de todos os produtos de sua lista?', 
+    Alert.alert('Limpar lista?', 'Confirme excluir de todas as tarefas de sua lista?', 
     [{
       text: 'sim', onPress: () => {setItems([])}
     },{
@@ -98,10 +98,10 @@ export default function Home() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ImageBackground source={require('../../assets/background.jpg')} resizeMode='repeat' style={{flex: 1, justifyContent: 'flex-start'}}>
+      <ImageBackground source={require('../../assets/background.jpg')} resizeMode='cover' style={{flex: 1, justifyContent: 'flex-start'}}>
         
         <View style={styles.header}>
-          <Text style={styles.title}>Lista de produtos</Text>
+          <Text style={styles.title}>Lista de tarefas</Text>
           <Ionicons name="trash" size={32} color='#fff' onPress={removeAll} />
         </View>
 
@@ -118,7 +118,7 @@ export default function Home() {
               color = '#fff'
               fontSize={18}
               placeholderTextColor="#fff"
-              placeholder='Digite o Nome do produto...'
+              placeholder='Digite a tarefa desejada...'
               value={textInput}
               onChangeText={(text) => setTextInput(text)}
             />
